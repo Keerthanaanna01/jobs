@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - IT Jobs</title>
+    <link rel="stylesheet" href="output1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg relative">
+        <!-- Close Button -->
+        <button id="close-register" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none" aria-label="Close register">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <h2 class="text-2xl font-bold text-gray-900 text-center">Register</h2>
+
+        <!-- Default Registration Form -->
+        <form id="default-register-form" class="mt-6 space-y-4">
+            <div>
+                <label for="default-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" id="default-name" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="John Doe" required>
+            </div>
+            <div>
+                <label for="default-email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="default-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="user@example.com" required>
+            </div>
+            <div>
+                <label for="default-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="default-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <!-- User Type Selection Buttons -->
+            <div class="grid grid-cols-3 gap-2">
+                <button type="button" id="student-option" class="bg-gray-100 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none">Student</button>
+                <button type="button" id="employer-option" class="bg-gray-100 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none">Employer</button>
+                <button type="button" id="admin-option" class="bg-gray-100 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none">Admin</button>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Register</button>
+        </form>
+
+        <!-- Student Registration Form -->
+        <form id="student-register-form" class="hidden mt-6 space-y-4">
+            <div>
+                <label for="student-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" id="student-name" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="John Doe" required>
+            </div>
+            <div>
+                <label for="student-email" class="block text-sm font-medium text-gray-700">Student Email</label>
+                <input type="email" id="student-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="student@example.com" required>
+            </div>
+            <div>
+                <label for="student-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="student-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <div>
+                <label for="student-university" class="block text-sm font-medium text-gray-700">University</label>
+                <input type="text" id="student-university" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., XYZ University" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Register as Student</button>
+        </form>
+
+        <!-- Employer Registration Form -->
+        <form id="employer-register-form" class="hidden mt-6 space-y-4">
+            <div>
+                <label for="employer-name" class="block text-sm font-medium text-gray-700">Company Name</label>
+                <input type="text" id="employer-name" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="ABC Corp" required>
+            </div>
+            <div>
+                <label for="employer-email" class="block text-sm font-medium text-gray-700">Employer Email</label>
+                <input type="email" id="employer-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="employer@example.com" required>
+            </div>
+            <div>
+                <label for="employer-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="employer-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <div>
+                <label for="employer-industry" class="block text-sm font-medium text-gray-700">Industry</label>
+                <input type="text" id="employer-industry" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Technology" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Register as Employer</button>
+        </form>
+
+        <!-- Admin Registration Form -->
+        <form id="admin-register-form" class="hidden mt-6 space-y-4">
+            <div>
+                <label for="admin-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" id="admin-name" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Jane Smith" required>
+            </div>
+            <div>
+                <label for="admin-email" class="block text-sm font-medium text-gray-700">Admin Email</label>
+                <input type="email" id="admin-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="admin@example.com" required>
+            </div>
+            <div>
+                <label for="admin-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="admin-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <div>
+                <label for="admin-code" class="block text-sm font-medium text-gray-700">Admin Authorization Code</label>
+                <input type="text" id="admin-code" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Enter admin code" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Register as Admin</button>
+        </form>
+
+        <div class="mt-4 text-center">
+            <p class="text-sm text-gray-600">Already have an account? <a href="login.html" class="text-blue-600 hover:underline">Login</a></p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Dynamic Form Display and Close Functionality -->
+    <script>
+        const studentOption = document.getElementById('student-option');
+        const employerOption = document.getElementById('employer-option');
+        const adminOption = document.getElementById('admin-option');
+        const defaultRegisterForm = document.getElementById('default-register-form');
+        const studentRegisterForm = document.getElementById('student-register-form');
+        const employerRegisterForm = document.getElementById('employer-register-form');
+        const adminRegisterForm = document.getElementById('admin-register-form');
+        const closeRegisterButton = document.getElementById('close-register');
+
+        // Show student registration form
+        studentOption.addEventListener('click', () => {
+            defaultRegisterForm.classList.add('hidden');
+            studentRegisterForm.classList.remove('hidden');
+            employerRegisterForm.classList.add('hidden');
+            adminRegisterForm.classList.add('hidden');
+        });
+
+        // Show employer registration form
+        employerOption.addEventListener('click', () => {
+            defaultRegisterForm.classList.add('hidden');
+            employerRegisterForm.classList.remove('hidden');
+            studentRegisterForm.classList.add('hidden');
+            adminRegisterForm.classList.add('hidden');
+        });
+
+        // Show admin registration form
+        adminOption.addEventListener('click', () => {
+            defaultRegisterForm.classList.add('hidden');
+            adminRegisterForm.classList.remove('hidden');
+            studentRegisterForm.classList.add('hidden');
+            employerRegisterForm.classList.add('hidden');
+        });
+
+        // Close register and redirect to home
+        closeRegisterButton.addEventListener('click', () => {
+            window.location.href = 'index.html'; // Redirect to home page
+        });
+
+        // Basic form submission handling (for demo purposes)
+        [defaultRegisterForm, studentRegisterForm, employerRegisterForm, adminRegisterForm].forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formId = form.id.replace('-register-form', '') || 'default';
+                alert(`Registration submitted for ${formId.charAt(0).toUpperCase() + formId.slice(1)}`);
+                // Add actual registration logic here
+            });
+        });
+    </script>
+</body>
+</html>

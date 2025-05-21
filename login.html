@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IT Jobs</title>
+    <link rel="stylesheet" href="output1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg relative">
+        <!-- Close Button -->
+        <button id="close-login" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none" aria-label="Close login">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <h2 class="text-2xl font-bold text-gray-900 text-center">Login</h2>
+
+        <!-- Default Login Form -->
+        <form id="default-login-form" class="mt-6 space-y-4">
+            <div>
+                <label for="default-email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="default-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="user@example.com" required>
+            </div>
+            <div>
+                <label for="default-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="default-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <!-- User Type Selection Buttons -->
+            <div class="grid grid-cols-3 gap-2">
+                <button type="button" id="student-option" class="bg-gray-100 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none">Student</button>
+                <button type="button" id="employer-option" class="bg-gray-100 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none">Employer</button>
+                <button type="button" id="admin-option" class="bg-gray-100 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 focus:outline-none">Admin</button>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Login</button>
+        </form>
+
+        <!-- Student Login Form -->
+        <form id="student-login-form" class="hidden mt-6 space-y-4">
+            <div>
+                <label for="student-email" class="block text-sm font-medium text-gray-700">Student Email</label>
+                <input type="email" id="student-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="student@example.com" required>
+            </div>
+            <div>
+                <label for="student-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="student-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Login as Student</button>
+        </form>
+
+        <!-- Employer Login Form -->
+        <form id="employer-login-form" class="hidden mt-6 space-y-4">
+            <div>
+                <label for="employer-email" class="block text-sm font-medium text-gray-700">Employer Email</label>
+                <input type="email" id="employer-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="employer@example.com" required>
+            </div>
+            <div>
+                <label for="employer-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="employer-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Login as Employer</button>
+        </form>
+
+        <!-- Admin Login Form -->
+        <form id="admin-login-form" class="hidden mt-6 space-y-4">
+            <div>
+                <label for="admin-email" class="block text-sm font-medium text-gray-700">Admin Email</label>
+                <input type="email" id="admin-email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="admin@example.com" required>
+            </div>
+            <div>
+                <label for="admin-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="admin-password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="********" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none">Login as Admin</button>
+        </form>
+    </div>
+
+    <!-- JavaScript for Dynamic Form Display and Close Functionality -->
+    <script>
+        const studentOption = document.getElementById('student-option');
+        const employerOption = document.getElementById('employer-option');
+        const adminOption = document.getElementById('admin-option');
+        const defaultLoginForm = document.getElementById('default-login-form');
+        const studentLoginForm = document.getElementById('student-login-form');
+        const employerLoginForm = document.getElementById('employer-login-form');
+        const adminLoginForm = document.getElementById('admin-login-form');
+        const closeLoginButton = document.getElementById('close-login');
+
+        // Show student login form
+        studentOption.addEventListener('click', () => {
+            defaultLoginForm.classList.add('hidden');
+            studentLoginForm.classList.remove('hidden');
+            employerLoginForm.classList.add('hidden');
+            adminLoginForm.classList.add('hidden');
+        });
+
+        // Show employer login form
+        employerOption.addEventListener('click', () => {
+            defaultLoginForm.classList.add('hidden');
+            employerLoginForm.classList.remove('hidden');
+            studentLoginForm.classList.add('hidden');
+            adminLoginForm.classList.add('hidden');
+        });
+
+        // Show admin login form
+        adminOption.addEventListener('click', () => {
+            defaultLoginForm.classList.add('hidden');
+            adminLoginForm.classList.remove('hidden');
+            studentLoginForm.classList.add('hidden');
+            employerLoginForm.classList.add('hidden');
+        });
+
+        // Close login and redirect to home
+        closeLoginButton.addEventListener('click', () => {
+            window.location.href = 'index.html'; // Redirect to home page
+        });
+
+        // Basic form submission handling (for demo purposes)
+        [defaultLoginForm, studentLoginForm, employerLoginForm, adminLoginForm].forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formId = form.id.replace('-login-form', '') || 'default';
+                alert(`Login submitted for ${formId.charAt(0).toUpperCase() + formId.slice(1)}`);
+                // Add actual login logic here
+            });
+        });
+    </script>
+</body>
+</html>

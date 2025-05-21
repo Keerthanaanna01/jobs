@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form - IT Jobs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="bg-gray-900">
+    <div class="max-w-7xl mx-auto bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+        <!-- Job Application Form -->
+        <section id="application" class="bg-gray-200 p-8 rounded-lg shadow-md mb-8 relative">
+            <!-- Close Button -->
+            <button id="close-application" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 focus:outline-none" aria-label="Close application">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900">IT Job Application Form</h2>
+                <p class="mt-2 text-xl text-gray-900">Apply for IT opportunities with your complete details</p>
+            </div>
+            <form id="jobForm" class="mt-8 space-y-6">
+                <!-- Personal Details -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-900">Personal Details</h3>
+                    <div class="mt-4 space-y-4">
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-900">Full Name</label>
+                            <input id="full-name" name="full-name" type="text" required
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                   placeholder="Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-900">Email Address</label>
+                            <input id="email" name="email" type="email" required
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                   placeholder="@email.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-900">Phone Number</label>
+                            <input id="phone" name="phone" type="tel" required pattern="\+?[1-9]\d{1,14}"
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                   placeholder="+91 98765 43210">
+                        </div>
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-900">Address</label>
+                            <textarea id="address" name="address" rows="3" required
+                                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                      placeholder="123 Main St, City, Country"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Details -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-900">Education Details</h3>
+                    <div id="educationFields" class="mt-4 space-y-4">
+                        <div class="education-entry space-y-4">
+                            <div>
+                                <label for="degree" class="block text-sm font-medium text-gray-900">Degree (e.g., B.Tech, M.Sc)</label>
+                                <input name="degree" type="text" required
+                                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                       placeholder="B.Tech in Computer Science">
+                            </div>
+                            <div>
+                                <label for="university" class="block text-sm font-medium text-gray-900">University/Institute</label>
+                                <input name="university" type="text" required
+                                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                       placeholder="Example University">
+                            </div>
+                            <div>
+                                <label for="percentage" class="block text-sm font-medium text-gray-900">Percentage/CGPA</label>
+                                <input name="percentage" type="number" step="0.01" min="0" max="100" required
+                                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                       placeholder="85">
+                            </div>
+                            <div>
+                                <label for="grad-year" class="block text-sm font-medium text-gray-900">Year of Graduation</label>
+                                <input name="grad-year" type="number" min="2000" max="2025" required
+                                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                       placeholder="2023">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="addEducation" class="mt-4 bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600">Add Education</button>
+                </div>
+
+                <!-- Job-Related Details -->
+                <div>
+                    <h3 class="text-lg font-medium text-gray-900">Job-Related Details</h3>
+                    <div class="mt-4 space-y-4">
+                        <div>
+                            <label for="position" class="block text-sm font-medium text-gray-900">Position Applied For</label>
+                            <select id="position" name="position" required
+                                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="" disabled selected>Select Position</option>
+                                <option value="software-engineer">Software Engineer</option>
+                                <option value="data-analyst">Data Analyst</option>
+                                <option value="devops-engineer">DevOps Engineer</option>
+                                <option value="ui-ux-designer">UI Designer</option>
+                                <option value="cybersecurity-analyst">Cybersecurity Analyst</option>
+                                <option value="data-scientist">Data Scientist</option>
+                                <option value="marketing-specialist">Marketing Specialist</option>
+                                <option value="product-manager">Product Manager</option>
+                                <option value="web-designer">Web Designer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="experience" class="block text-sm font-medium text-gray-900">Years of Experience</label>
+                            <input id="experience" name="experience" type="number" min="0" max="50" required
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                   placeholder="2">
+                        </div>
+                        <div>
+                            <label for="skills" class="block text-sm font-medium text-gray-900">Key Skills</label>
+                            <textarea id="skills" name="skills" rows="3" required
+                                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                      placeholder="Python, JavaScript, AWS, SQL"></textarea>
+                        </div>
+                        <div>
+                            <label for="resume" class="block text-sm font-medium text-gray-900">Upload Resume</label>
+                            <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" required
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <p id="resumeName" class="mt-1 text-sm text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Submit Application
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Student Dashboard -->
+        <section id="dashboard" class="bg-gray-200 p-8 rounded-lg shadow-md" style="display: none;">
+            <h2 class="text-2xl font-extrabold text-gray-900">Student Dashboard - Applied Jobs</h2>
+            <div id="appliedJobs" class="mt-4 space-y-4"></div>
+        </section>
+    </div>
+
+    <script>
+        // Initialize applied jobs from localStorage
+        let appliedJobs = JSON.parse(localStorage.getItem('appliedJobs')) || [];
+
+        // Function to save applied jobs to localStorage
+        function saveAppliedJobs() {
+            localStorage.setItem('appliedJobs', JSON.stringify(appliedJobs));
+        }
+
+        // Function to display applied jobs
+        function displayAppliedJobs() {
+            const appliedJobsDiv = document.getElementById('appliedJobs');
+            appliedJobsDiv.innerHTML = '';
+            if (appliedJobs.length === 0) {
+                appliedJobsDiv.innerHTML = '<p class="text-gray-900">No jobs applied yet.</p>';
+                return;
+            }
+            appliedJobs.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.className = 'border border-gray-300 p-4 rounded-md';
+                jobCard.innerHTML = `
+                    <h3 class="text-lg font-semibold text-gray-900">${job.position} (${job.experience} years)</h3>
+                    <p><strong>Name:</strong> ${job.fullName}</p>
+                    <p><strong>Email:</strong> ${job.email}</p>
+                    <p><strong>Phone:</strong> ${job.phone}</p>
+                    <p><strong>Address:</strong> ${job.address}</p>
+                    <p><strong>Education:</strong> ${job.education.map(edu => `${edu.degree} from ${edu.university} (${edu.percentage}%, ${edu.gradYear})`).join(', ')}</p>
+                    <p><strong>Skills:</strong> ${job.skills}</p>
+                    <p><strong>Resume:</strong> ${job.resumeName}</p>
+                `;
+                appliedJobsDiv.appendChild(jobCard);
+            });
+        }
+
+        // Add education field dynamically
+        document.getElementById('addEducation').addEventListener('click', () => {
+            const educationFields = document.getElementById('educationFields');
+            const newEntry = document.createElement('div');
+            newEntry.className = 'education-entry space-y-4 mt-4';
+            newEntry.innerHTML = `
+                <div>
+                    <label class="block text-sm font-medium text-gray-900">Degree (e.g., B.Tech, M.Sc)</label>
+                    <input name="degree" type="text" required
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                           placeholder="B.Tech in Computer Science">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-900">University/Institute</label>
+                    <input name="university" type="text" required
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                           placeholder="Example University">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-900">Percentage/CGPA</label>
+                    <input name="percentage" type="number" step="0.01" min="0" max="100" required
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                           placeholder="85">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-900">Year of Graduation</label>
+                    <input name="grad-year" type="number" min="2000" max="2025" required
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                           placeholder="2023">
+                </div>
+            `;
+            educationFields.appendChild(newEntry);
+        });
+
+        // Display resume file name
+        document.getElementById('resume').addEventListener('change', (e) => {
+            const resumeName = document.getElementById('resumeName');
+            resumeName.textContent = e.target.files[0]?.name || 'No file selected';
+        });
+
+        // Handle form submission
+        document.getElementById('jobForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Collect education details
+            const educationEntries = document.querySelectorAll('.education-entry');
+            const education = Array.from(educationEntries).map(entry => ({
+                degree: entry.querySelector('input[name="degree"]').value,
+                university: entry.querySelector('input[name="university"]').value,
+                percentage: parseFloat(entry.querySelector('input[name="percentage"]').value),
+                gradYear: parseInt(entry.querySelector('input[name="grad-year"]').value)
+            }));
+
+            // Collect form data
+            const jobApplication = {
+                fullName: document.getElementById('full-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                education: education,
+                position: document.getElementById('position').value,
+                experience: parseInt(document.getElementById('experience').value),
+                skills: document.getElementById('skills').value,
+                resumeName: document.getElementById('resume').files[0]?.name || 'No file uploaded'
+            };
+
+            // Add to applied jobs
+            appliedJobs.push(jobApplication);
+            saveAppliedJobs();
+            displayAppliedJobs();
+
+            // Reset form
+            document.getElementById('jobForm').reset();
+            document.getElementById('resumeName').textContent = '';
+            document.getElementById('educationFields').innerHTML = `
+                <div class="education-entry space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900">Degree (e.g., B.Tech, M.Sc)</label>
+                        <input name="degree" type="text" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                               placeholder="B.Tech in Computer Science">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900">University/Institute</label>
+                        <input name="university" type="text" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                               placeholder="Example University">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900">Percentage/CGPA</label>
+                        <input name="percentage" type="number" step="0.01" min="0" max="100" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                               placeholder="85">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900">Year of Graduation</label>
+                        <input name="grad-year" type="number" min="2000" max="2025" required
+                               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                               placeholder="2023">
+                    </div>
+                </div>
+            `;
+
+            alert('Application submitted successfully!');
+        });
+
+        // Close application and redirect to home
+        document.getElementById('close-application').addEventListener('click', () => {
+            window.location.href = 'index.html'; // Redirect to home page
+        });
+
+        // Initial display of applied jobs
+        displayAppliedJobs();
+
+        // Handle navigation (if nav exists)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = section.id === targetId ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Show application section by default
+        document.getElementById('application').style.display = 'block';
+        document.getElementById('dashboard').style.display = 'none';
+    </script>
+</body>
+</html>

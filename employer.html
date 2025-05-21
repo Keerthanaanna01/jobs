@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Job Portal</title>
+    <link rel="stylesheet" href="output1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 shadow-md w-full fixed top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-blue-600">IT Jobs</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center">
+                    <ul class="flex space-x-4">
+                        <li>
+                            <a href="index.html" class="text-gray-100 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                        </li>
+                        <!-- Dashboard Dropdown -->
+                        <li class="relative">
+                            <button id="dashboard-btn" class="text-gray-100 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">
+                                Dashboard
+                            </button>
+                            <ul id="dashboard-menu" class="absolute hidden bg-white shadow-lg rounded-md mt-2 w-48 py-2">
+                                <li>
+                                    <a href="student.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Student Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="employer.html" class="block px-4 py-2 text-sm text-blue-600 font-semibold bg-blue-50">Employer Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="admin.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Admin Dashboard</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/about" class="text-gray-100 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/it/index.html/contact" class="text-gray-100 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="login.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">Login</a>
+                        </li>
+                        <li>
+                            <a href="register.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none" aria-label="Toggle mobile menu">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 shadow-md">
+            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <li>
+                    <a href="index.html" class="block text-white hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                </li>
+                <!-- Mobile Dashboard Accordion -->
+                <li class="relative">
+                    <button id="mobile-dashboard-btn" class="block text-white hover:bg-blue-600 px-3 py-2 rounded-md text-base font-medium">
+                        Dashboard
+                    </button>
+                    <ul id="mobile-dashboard-menu" class="hidden pl-4 space-y-1">
+                        <li>
+                            <a href="student.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Student Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="employer.html" class="block px-4 py-2 text-sm text-blue-600 font-semibold bg-blue-50">Employer Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="admin.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Admin Dashboard</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/about" class="block text-white hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                </li>
+                <li>
+                    <a href="#contact" class="block text-white hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
+                </li>
+                <li>
+                    <a href="login.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">Login</a>
+                </li>
+                <br>
+                <li>
+                    <a href="register.html" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen px-4 sm:px-16 pt-16">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-64 bg-gray-900 text-white shadow-lg fixed h-full transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-20">
+            <div class="p-4 text-2xl font-bold flex justify-between items-center">
+                Employer Portal
+                <button id="close-sidebar" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4">
+                <a href="#" onclick="showPage('dashboard')" class="block p-4 hover:bg-gray-700 text-white">Dashboard</a>
+                <a href="#" onclick="showPage('manage-jobs')" class="block p-4 hover:bg-gray-700 text-white">Manage Jobs</a>
+                <a href="#" onclick="showPage('view-applications')" class="block p-4 hover:bg-gray-700 text-white">View Applications</a>
+                <a href="#" onclick="showPage('post-job')" class="block p-4 hover:bg-gray-700 text-white">Post a Job</a>
+                <a href="#" onclick="showPage('company-profile')" class="block p-4 hover:bg-gray-700 text-white">Company Profile</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Sidebar Button -->
+        <button id="open-sidebar" class="md:hidden fixed top-20 right-4 z-30 text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6 overflow-auto md:ml-64 bg-gray-900 px-4 sm:px-16 pt-16">
+            <!-- Employer Dashboard (Private - Employer) -->
+            <section id="dashboard" class="mb-8 page">
+                <h1 class="text-3xl font-bold mb-4 text-white">Employer Dashboard</h1>
+                <div class="bg-gray-800 p-6 rounded-lg shadow">
+                    <p class="text-gray-300">Welcome, Employer! Manage your job postings and applications here.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                        <div class="bg-indigo-600 p-4 rounded">
+                            <h3 class="font-semibold text-white">Active Job Postings</h3>
+                            <p class="text-gray-200">25 Active</p>
+                        </div>
+                        <div class="bg-green-600 p-4 rounded">
+                            <h3 class="font-semibold text-white">Applications Received</h3>
+                            <p class="text-gray-300">120 This Month</p>
+                        </div>
+                        <div class="bg-yellow-600 p-4 rounded">
+                            <h3 class="font-semibold text-white">Interviews Scheduled</h3>
+                            <p class="text-gray-300">15 This Week</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Manage Jobs (Private - Employer) -->
+            <section id="manage-jobs" class="mb-8 page hidden">
+                <h1 class="text-3xl font-bold mb-4 text-white">Manage Jobs</h1>
+                <div class="bg-gray-800 p-6 rounded-lg shadow">
+                    <ul class="space-y-4">
+                        <li class="flex flex-col sm:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="font-semibold text-white">Software Engineer</h3>
+                                <p class="text-gray-300">Your Tech Corp</p>
+                            </div>
+                            <div class="mt-2 sm:mt-0">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">Edit</button>
+                                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
+                            </div>
+                        </li>
+                        <li class="flex flex-col sm:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="font-semibold text-white">Data Scientist</h3>
+                                <p class="text-gray-300">Your Tech Corp</p>
+                            </div>
+                            <div class="mt-2 sm:mt-0">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">Edit</button>
+                                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- View Applications (Private - Employer) -->
+            <section id="view-applications" class="mb-8 page hidden">
+                <h1 class="text-3xl font-bold mb-4 text-white">View Applications</h1>
+                <div class="bg-gray-800 p-6 rounded-lg shadow">
+                    <ul class="space-y-4">
+                        <li class="flex flex-col sm:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="font-semibold text-white">John Doe</h3>
+                                <p class="text-gray-300">Applied for Software Engineer</p>
+                            </div>
+                            <div class="mt-2 sm:mt-0">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">View Resume</button>
+                                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Schedule Interview</button>
+                            </div>
+                        </li>
+                        <li class="flex flex-col sm:flex-row justify-between items-center">
+                            <div>
+                                <h3 class="font-semibold text-white">Jane Smith</h3>
+                                <p class="text-gray-300">Applied for Data Scientist</p>
+                            </div>
+                            <div class="mt-2 sm:mt-0">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">View Resume</button>
+                                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Schedule Interview</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Post a Job (Private - Employer) -->
+            <section id="post-job" class="mb-8 page hidden">
+                <h1 class="text-3xl font-bold mb-4 text-white">Post a Job</h1>
+                <div class="bg-gray-800 p-6 rounded-lg shadow">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300">Job Title</label>
+                            <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" placeholder="e.g., Software Engineer">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300">Company</label>
+                            <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" placeholder="e.g., Your Tech Corp">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300">Location</label>
+                            <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" placeholder="e.g., Remote">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300">Description</label>
+                            <textarea class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" rows="4" placeholder="Job description..."></textarea>
+                        </div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Post Job</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Company Profile (Private - Employer) -->
+            <section id="company-profile" class="mb-8 page hidden">
+                <h1 class="text-3xl font-bold mb-4 text-white">Company Profile</h1>
+                <div class="bg-gray-800 p-6 rounded-lg shadow">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300">Company Name</label>
+                            <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" placeholder="e.g., Your Tech Corp">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300">Industry</label>
+                            <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" placeholder="e.g., Technology">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300">About Company</label>
+                            <textarea class="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded" rows="4" placeholder="Describe your company..."></textarea>
+                        </div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Update Profile</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Mobile sidebar toggle
+        document.getElementById('open-sidebar').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.remove('-translate-x-full');
+        });
+
+        document.getElementById('close-sidebar').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+        });
+
+        // Desktop Dashboard Dropdown
+        const dashboardBtn = document.getElementById('dashboard-btn');
+        const dashboardMenu = document.getElementById('dashboard-menu');
+
+        dashboardBtn.addEventListener('click', () => {
+            dashboardMenu.classList.toggle('hidden');
+        });
+
+        dashboardBtn.addEventListener('mouseenter', () => {
+            dashboardMenu.classList.remove('hidden');
+        });
+
+        dashboardMenu.addEventListener('mouseleave', () => {
+            dashboardMenu.classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuIcon.innerHTML = mobileMenu.classList.contains('hidden') ?
+                `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />` :
+                `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
+        });
+
+        // Mobile Dashboard Accordion
+        const mobileDashboardBtn = document.getElementById('mobile-dashboard-btn');
+        const mobileDashboardMenu = document.getElementById('mobile-dashboard-menu');
+
+        mobileDashboardBtn.addEventListener('click', () => {
+            mobileDashboardMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
